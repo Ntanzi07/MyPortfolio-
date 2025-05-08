@@ -81,22 +81,31 @@ const Hero = (props: Props) => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    let width
-    if(viewportWidth > 1280)
-        width = useTransform(scrollYProgress, [0, 0.5], ["65em", "0em"]);
-    else if(viewportWidth > 768)
-        width = useTransform(scrollYProgress, [0, 0.5], ["70%", "0%"]);
-    else
-        width = useTransform(scrollYProgress, [0, 0.3], ["100%", "0%"]);
+    // Define all transforms unconditionally (HOOKS MUST BE TOP-LEVEL)
+    const desktopWidth = useTransform(scrollYProgress, [0, 0.5], ["65em", "0em"])
+    const tabletWidth = useTransform(scrollYProgress, [0, 0.5], ["70%", "0%"])
+    const mobileHeight = useTransform(scrollYProgress, [0, 0.5], ["100%", "0%"])
+
+    // Apply conditions to the STYLES, not the hooks
+    const componentStyle = viewportWidth > 1280 ? {
+        width: desktopWidth,
+        height: "calc(100% - 8rem)"
+    } : viewportWidth > 768 ? {
+        width: tabletWidth,
+        height: "calc(100% - 8rem)"
+    } : {
+        width: "100%",
+        height: mobileHeight
+    }
 
     return (
-        <section className='relative flex h-screen padding-x md:justify-end gap-10 flex-col md:py-16 pt-16'>
+        <section className='relative flex h-screen padding-x md:justify-end justify-between gap-10 flex-col md:py-16 pt-16'>
             <motion.div
                 ref={refH1}
                 variants={container}
                 initial="hidden"
                 animate={controlsH1}
-                className="sticky top-[4rem] flex flex-col justify-center questrial-regular">
+                className="sticky top-[2rem] flex flex-col justify-center questrial-regular">
 
                 <h2 className="xl:text-7xl md:text-5xl text-[6vw] flex sm:gap-5 gap-[3vw] overflow-hidden">
                     {
@@ -140,7 +149,7 @@ const Hero = (props: Props) => {
                 variants={appear}
                 initial="hidden"
                 animate={controlsH1}
-                style={{ width }}
+                style={componentStyle}
                 className='hero__img-content'
             >
                 <Image src="/bg3.jpg" alt="bg" fill className='object-cover md:object-right' />
