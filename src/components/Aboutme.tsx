@@ -11,10 +11,14 @@ const aboutme = (props: Props) => {
 
     return (
         <motion.section
-            style={{opacity}}
-            className='h-screen padding-x'>
+            style={{ opacity }}
+            className='h-screen padding-x py-5'>
             <h2 className='text-[3em]'>About Me</h2>
             <hr className='bg-white h-[2px] w-full' />
+            <p>
+                a front-end developer & computer engineering student based in Brazil.
+                Passionate about technology, design, and clean code.
+            </p>
         </motion.section>
     )
 }

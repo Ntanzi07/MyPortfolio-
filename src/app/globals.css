@@ -32,11 +32,11 @@ body {
 }
 
 .hero__img-content{
-  @apply md:absolute md:right-0 md:bottom-[50%] z-[-1] md:-translate-y-[-50%] overflow-hidden
-   relative self-end;
+  @apply absolute lg:right-0 lg:bottom-[50%] lg:-translate-y-[-50%] lg:-translate-x-[0%] overflow-hidden
+  -translate-x-[-50%] right-[50%] bottom-0 z-[-1];
 }
 .hero__img-content::after{
-  @apply w-full top-0 left-0 h-full absolute md:inline hidden;
+  @apply w-full top-0 left-0 h-full absolute lg:inline hidden;
   content: "";
   z-index: 1;
   background-image: linear-gradient(90deg, var(--background) 0%, rgba(0, 0, 0, 0) 10%),

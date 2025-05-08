@@ -84,34 +84,31 @@ const Hero = (props: Props) => {
     // Define all transforms unconditionally (HOOKS MUST BE TOP-LEVEL)
     const desktopWidth = useTransform(scrollYProgress, [0, 0.5], ["65em", "0em"])
     const tabletWidth = useTransform(scrollYProgress, [0, 0.5], ["70%", "0%"])
-    const mobileHeight = useTransform(scrollYProgress, [0, 0.5], ["100%", "0%"])
+    const mobileHeight = useTransform(scrollYProgress, [0, 0.5], ["50%", "0%"])
 
     // Apply conditions to the STYLES, not the hooks
     const componentStyle = viewportWidth > 1280 ? {
         width: desktopWidth,
         height: "calc(100% - 8rem)"
-    } : viewportWidth > 768 ? {
-        width: tabletWidth,
-        height: "calc(100% - 8rem)"
     } : {
-        width: "100%",
-        height: mobileHeight
+        width: "calc(100% - 4rem)",
+        height: "calc(90% - 4rem)"
     }
 
     return (
-        <section className='relative flex h-screen padding-x md:justify-end justify-between gap-10 flex-col md:py-16 pt-16'>
+        <section className='relative flex h-screen padding-x sm:justify-end justify-between gap-10 flex-col sm:py-16 pt-16'>
             <motion.div
                 ref={refH1}
                 variants={container}
                 initial="hidden"
                 animate={controlsH1}
-                className="sticky top-[2rem] flex flex-col justify-center questrial-regular">
+                className="sticky sm:bg-transparent bg-[var(--background)] top-[0rem] py-[2rem] flex flex-col justify-center questrial-regular">
 
-                <h2 className="xl:text-7xl md:text-5xl text-[6vw] flex sm:gap-5 gap-[3vw] overflow-hidden">
+                <h2 className="xl:text-7xl sm:text-5xl text-[6vw] flex sm:gap-5 gap-[3vw] overflow-hidden">
                     {
                         lettersSubtitle1.map((letter, index) => (
                             <motion.span
-                                variants={letterAnimation} // ONLY variants here
+                                variants={letterAnimation}
                                 className="inline-block"
                                 key={index}>
                                 {letter}
@@ -119,11 +116,11 @@ const Hero = (props: Props) => {
                         ))
                     }
                 </h2>
-                <h1 className='xl:text-8xl md:text-7xl text-[11vw] flex md:gap-5 gap-[3vw] tracking-widest overflow-hidden'>
+                <h1 className='xl:text-8xl sm:text-7xl text-[11vw] flex md:gap-5 gap-[3vw] tracking-widest overflow-hidden'>
                     {
                         letterstitle.map((letter, index) => (
                             <motion.span
-                                variants={letterAnimation} // ONLY variants here
+                                variants={letterAnimation}
                                 className="inline-block"
                                 key={index}>
                                 {letter}
@@ -131,11 +128,11 @@ const Hero = (props: Props) => {
                         ))
                     }
                 </h1>
-                <h2 className="xl:text-5xl md:text-3xl text-[6vw] flex md:gap-5 gap-[3vw] tracking-[.3em] italic overflow-hidden">
+                <h2 className="xl:text-5xl sm:text-3xl text-[6vw] flex md:gap-5 gap-[3vw] tracking-[.3em] italic overflow-hidden">
                     {
                         lettersSubtitle2.map((letter, index) => (
                             <motion.span
-                                variants={letterAnimation} // ONLY variants here
+                                variants={letterAnimation}
                                 className="inline-block"
                                 key={index}>
                                 {letter}
@@ -152,7 +149,7 @@ const Hero = (props: Props) => {
                 style={componentStyle}
                 className='hero__img-content'
             >
-                <Image src="/bg3.jpg" alt="bg" fill className='object-cover md:object-right' />
+                <Image src="/bg3.jpg" alt="bg" fill className='object-cover lg:object-right' />
             </motion.div>
         </section>
     )
