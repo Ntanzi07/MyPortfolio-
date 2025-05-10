@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 
 type Props = {}
 
-const aboutme = (props: Props) => {
+const Aboutme = (props: Props) => {
 
   // animation scroll
   const ref = useRef(null)
@@ -26,15 +26,11 @@ const aboutme = (props: Props) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const opacity = viewportWidth > 768
-    ? useTransform(scroll1, [0, 1], ["0", "1"])
-    : useTransform(scroll1, [0, 1], ["0", "1"]);
+  const opacity = useTransform(scroll1, [0, 1], ["0", "1"]);
 
-
-  const itensMarquee = ["React", "JavaScript", "Node.js", "Java", "Next.js", "Photoshop", "Illustrator"];
   const imgs = ['/eu1.jpg', '/eu6.jpg', '/eu3.jpg', '/eu5.jpg', '/eu2.jpg']
 
-  if (viewportWidth > 1280) {
+  if (viewportWidth > 1024) {
     const refimg = useRef(null)
     // Rastreia o terceiro elemento separadamente
     const { scrollYProgress: scroll2 } = useScroll({
@@ -47,11 +43,12 @@ const aboutme = (props: Props) => {
         ref={refimg}
         style={{ opacity }}
         className='relative h-[300vh]'>
-        <div ref={ref} className='sticky top-0 h-[100vh] gap-10 padding-x py-5 flex flex-col'>
+        <div ref={ref} className='sticky top-0 h-[100vh] padding-x py-5 flex flex-col'>
           <h2 className='text-[3em]'>About Me</h2>
           <hr className='bg-white h-[2px] mb-[2em]' />
-          <div className='relative h-[100%] flex items-center justify-between mb-[2em]'>
-            <p className='text-3xl flex-1'>
+          <div className='relative  flex items-center justify-between h-full mb-[2em]'>
+            
+            <p className='xl:text-3xl text-2xl max-w-[20em] flex-1'>
               I'm a full-stack developer and computer engineering student focused on building scalable web
               applications from front to back. I work on a range of projects, from designing clean,
               responsive interfaces to developing robust APIs and backend solutions.
@@ -62,7 +59,8 @@ const aboutme = (props: Props) => {
               <br /> <br />
               Always building. Always evolving.
             </p>
-            <div className='relative flex-[1.5] h-full'>
+
+            <div className='relative xl:w-[40em] w-[30em] h-full'>
               <motion.div
                 style={{ translateY }}
                 className="absolute h-max columns-2 px-5 z-[-1] top-[100%]">
@@ -74,19 +72,7 @@ const aboutme = (props: Props) => {
               </motion.div>
             </div>
           </div>
-          <Marquee
-            autoFill={true}
-            className="text-[1.5em] py-2 bg-[#0a0a0a] flex w-full"
-          >
-            {
-              itensMarquee.map((item, index) => (
-                <>
-                  <span className='px-[1em]'>{item}</span>
-                  <span className='px-[1em]'>—</span>
-                </>
-              ))
-            }
-          </Marquee>
+          <MyMarquee />
         </div>
       </motion.section>
     )
@@ -96,7 +82,7 @@ const aboutme = (props: Props) => {
     // Rastreia o segundo elemento separadamente
     const { scrollYProgress: scroll2 } = useScroll({
       target: refimg,
-      offset: ["0 1", "1 1"]  // Configuração independente
+      offset: ["0 1", "1 0"]  // Configuração independente
     });
     const translateX = useTransform(scroll2, [0.2, 1], ["0", "-100%"])
     return (
@@ -119,19 +105,7 @@ const aboutme = (props: Props) => {
               Always building. Always evolving.
             </p>
           </div>
-          <Marquee
-            autoFill={true}
-            className="text-[1.5em] py-2 bg-[#0a0a0a] flex w-full"
-          >
-            {
-              itensMarquee.map((item, index) => (
-                <>
-                  <span className='px-[1em]'>{item}</span>
-                  <span className='px-[1em]'>—</span>
-                </>
-              ))
-            }
-          </Marquee>
+          <MyMarquee />
         </div>
         <div ref={refimg} className="h-[400vh]">
           <div className='sticky top-0 h-[100vh] overflow-x-hidden '>
@@ -150,11 +124,32 @@ const aboutme = (props: Props) => {
             </motion.div>
           </div>
         </div>
-
-
       </motion.section>
     )
   }
 }
 
-export default aboutme
+export default Aboutme
+
+const MyMarquee = () => {
+  const itensMarquee = ["React", "JavaScript", "Node.js", "Java", "Next.js", "Photoshop", "Illustrator"];
+  return (
+    <div className='lg:absolute lg:bottom-[1em] w-full left-0'>
+      <Marquee
+        autoFill={true}
+        gradient
+        gradientColor='#0a0a0a'
+        className="bg-[#0a0a0a]"
+      >
+        {
+          itensMarquee.map((item, index) => (
+            <div key={index} className='text-[1.5em]'>
+              <span className='px-[1em]'>{item}</span>
+              <span className=''>•</span>
+            </div>
+          ))
+        }
+      </Marquee>
+    </div>
+  )
+}
