@@ -37,7 +37,7 @@ const Aboutme = (props: Props) => {
       target: refimg,
       offset: ["0 0", "1 1"]  // Configuração independente
     });
-    const translateY = useTransform(scroll2, [0, 1], ["0", "-100%"])
+    const translateY = useTransform(scroll2, [0, 1], ["0", "-200%"])
     return (
       <motion.section
         ref={refimg}
@@ -60,7 +60,7 @@ const Aboutme = (props: Props) => {
               Always building. Always evolving.
             </p>
 
-            <div className='relative xl:w-[40em] w-[30em] h-full'>
+            <div className='relative xl:w-[40em] w-[30em] h-full mx-auto'>
               <motion.div
                 style={{ translateY }}
                 className="absolute h-max columns-2 px-5 z-[-1] top-[100%]">
@@ -84,7 +84,7 @@ const Aboutme = (props: Props) => {
       target: refimg,
       offset: ["0 1", "1 0"]  // Configuração independente
     });
-    const translateX = useTransform(scroll2, [0.2, 1], ["0", "-100%"])
+    const translateX = useTransform(scroll2, [0.2, .8], ["0", "-100%"])
     return (
       <motion.section
         style={{ opacity }}
@@ -92,7 +92,7 @@ const Aboutme = (props: Props) => {
         <div ref={ref} className='h-fit padding-x py-5 flex flex-col '>
           <h2 className='text-[3em]'>About Me</h2>
           <hr className='bg-white h-[2px] w-full mb-[2em]' />
-          <div className='relative h-[100%] flex items-center justify-between mb-[2em]'>
+          <div className='relative h-[100%] flex items-center text-justify justify-between mb-[2em]'>
             <p className='text-2xl w-[20em]'>
               I'm a full-stack developer and computer engineering student focused on building scalable web
               applications from front to back. I work on a range of projects, from designing clean,
@@ -111,7 +111,7 @@ const Aboutme = (props: Props) => {
           <div className='sticky top-0 h-[100vh] overflow-x-hidden '>
             <motion.div
               style={{ translateX }}
-              className="absolute flex gap-5 w-max h-[30em] translate-y-[-50%] top-[50%] translate-x-[50vw] "
+              className="absolute flex gap-5 w-max h-[30em] translate-y-[-50%] top-[50%] padding-x"
             >
               {imgs.map((src) => (
                 <img
