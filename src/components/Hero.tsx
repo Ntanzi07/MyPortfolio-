@@ -150,7 +150,7 @@ const Hero = (props: Props) => {
                 style={componentStyle}
                 className='hero__img-content'
             >
-                <Image src="/bg3.jpg" alt="bg" fill className='object-cover lg:object-right' />
+                <Image src="/work1.jpg" alt="bg" fill className='object-cover lg:object-right' />
             </motion.div>
         </section>
     )
