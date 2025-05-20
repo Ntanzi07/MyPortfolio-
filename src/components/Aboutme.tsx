@@ -1,4 +1,5 @@
 'use client'
+
 import { motion, useScroll, useTransform } from 'motion/react';
 import Marquee from "react-fast-marquee"
 import { useEffect, useRef, useState } from 'react';
@@ -32,10 +33,10 @@ const Aboutme = (props: Props) => {
 
   if (viewportWidth > 1024) {
     const refimg = useRef(null)
-    // Rastreia o terceiro elemento separadamente
+
     const { scrollYProgress: scroll2 } = useScroll({
       target: refimg,
-      offset: ["0 0", "1 1"]  // Configuração independente
+      offset: ["0 0", "1 1"]
     });
     const translateY = useTransform(scroll2, [0, 1], ["0", "-200%"])
     return (
@@ -47,7 +48,7 @@ const Aboutme = (props: Props) => {
           <h2 className='text-[3em]'>About Me</h2>
           <hr className='bg-white h-[2px] mb-[2em]' />
           <div className='relative  flex items-center justify-between h-full mb-[2em]'>
-            
+
             <p className='xl:text-3xl text-2xl max-w-[20em] flex-1'>
               I'm a full-stack developer and computer engineering student focused on building scalable web
               applications from front to back. I work on a range of projects, from designing clean,
@@ -79,10 +80,10 @@ const Aboutme = (props: Props) => {
   }
   else {
     const refimg = useRef(null)
-    // Rastreia o segundo elemento separadamente
+
     const { scrollYProgress: scroll2 } = useScroll({
       target: refimg,
-      offset: ["0 1", "1 0"]  // Configuração independente
+      offset: ["0 1", "1 0"]
     });
     const translateX = useTransform(scroll2, [0.2, .8], ["0", "-100%"])
     return (
@@ -109,19 +110,16 @@ const Aboutme = (props: Props) => {
         </div>
         <div ref={refimg} className="h-[400vh]">
           <div className='sticky top-0 h-[100vh] overflow-x-hidden '>
-            <motion.div
-              style={{ translateX }}
-              className="absolute flex gap-5 w-max h-[30em] translate-y-[-50%] top-[50%] padding-x"
-            >
-              {imgs.map((src) => (
-                <img
-                  key={src}
-                  src={src}
-                  alt={src}
-                  className="w-max object-contain"
-                />
-              ))}
-            </motion.div>
+            <div className='relative h-[100vh] w-full overflow-hidden'>
+              <motion.div
+                style={{ translateX }}
+                className="absolute left-1/2 top-1/2  -translate-y-1/2 flex gap-5 w-max h-[60vh] z-0"
+              >
+                {imgs.map((src, index) => (
+                  <img key={index} src={src} className="h-full object-contain" />
+                ))}
+              </motion.div>
+            </div>
           </div>
         </div>
       </motion.section>
