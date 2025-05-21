@@ -13,7 +13,7 @@ const Aboutme = (props: Props) => {
 
   const { scrollYProgress: scroll1 } = useScroll({
     target: ref,
-    offset: ["0 1", "0 0"]  // Opacidade: 0 quando o topo do elemento toca a base da viewport
+    offset: ["0 1", "0 0"]
   });
 
   const [viewportWidth, setViewportWidth] = useState(0);
