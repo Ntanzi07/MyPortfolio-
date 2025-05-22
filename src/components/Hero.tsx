@@ -53,19 +53,19 @@ const Hero = (props: Props) => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     className="w-[15em] ml-auto">
-                    Hi! I’m a developer and <span className="bg-gray-300  text-center">computer engineering</span> student
+                    Developer and <span className="bg-gray-300  text-center">computer engineering</span> student
                     who loves building web applications.
                     <br /> <br />
                 </motion.p>
             </div>
-            <h2 className=" text-[8vw] leading-[1em]">
+            <h2 className=" text-[8vw] leading-[1em] bg-[var(--background)] w-fit z-10">
                 <SplitText>Hi I'm</SplitText>
             </h2>
             <motion.h1
                 style={{
                     translateY,
                 }}
-                className='lg:text-[16vw] sm:text-[13vw] text-[23vw] leading-[1em]'>
+                className='lg:text-[16vw] sm:text-[13vw] text-[23vw] leading-[1em] bg-[var(--background)] z-20'>
                 <SplitText>Nathan Tanzi</SplitText>
             </motion.h1>
         </section>
