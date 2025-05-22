@@ -22,8 +22,6 @@ const Projects = () => {
             },
         ]
 
-
-
     const containerRef = useRef<HTMLDivElement>(null);
     const rawMouseY = useMotionValue(0);
     const rawScale = useMotionValue(0);
