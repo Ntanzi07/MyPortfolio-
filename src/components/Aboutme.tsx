@@ -8,7 +8,6 @@ type Props = {}
 
 const Aboutme = (props: Props) => {
 
-  // animation scroll
   const ref = useRef(null)
 
   const { scrollYProgress: scroll1 } = useScroll({
@@ -38,6 +37,7 @@ const Aboutme = (props: Props) => {
       target: refimg,
       offset: ["0 0", "1 1"]
     });
+
     const translateY = useTransform(scroll2, [0, 1], ["0", "-200%"])
     return (
       <motion.section
@@ -136,8 +136,8 @@ const MyMarquee = () => {
       <Marquee
         autoFill={true}
         gradient
-        gradientColor='#0a0a0a'
-        className="bg-[#0a0a0a]"
+        gradientColor='var(--background)'
+        className="bg-[var(--background)]"
       >
         {
           itensMarquee.map((item, index) => (
