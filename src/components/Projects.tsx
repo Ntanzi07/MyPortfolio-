@@ -26,13 +26,18 @@ const Projects = () => {
 
     const containerRef = useRef<HTMLDivElement>(null);
     const rawMouseY = useMotionValue(0);
+    const rawScale = useMotionValue(0);
     const [height, setHeight] = useState(1);
 
     const itemsRef = useRef<HTMLDivElement>(null);
     const [heightItems, setHeightItems] = useState(1);
 
-    // Smooth spring version of rawMouseY
     const mouseY = useSpring(rawMouseY, {
+        stiffness: 100,
+        damping: 20,
+    });
+
+    const scaleItem = useSpring(rawScale, {
         stiffness: 100,
         damping: 20,
     });
@@ -54,25 +59,40 @@ const Projects = () => {
         const bounds = containerRef.current.getBoundingClientRect();
         const relativeY = e.clientY - bounds.top;
         rawMouseY.set(relativeY);
+        rawScale.set(1);
     };
 
     const handleMouseLeave = () => {
         rawMouseY.set(height / 2); // back to center
+        rawScale.set(0);
     };
 
+    const [isMobile, setIsMobile] = useState(false);
 
-    console.log(heightItems)
-    const moveY = useTransform(mouseY, [0, height], [`${heightItems/6}px`, `-${heightItems/6}px`]);
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+        checkMobile(); // initial
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
+
+    const moveY = useTransform(
+        mouseY,
+        [0, height],
+        isMobile
+            ? [`0`, `0`]
+            : [`${heightItems / 2}px`, `-${heightItems / 2}px`]);
+
+    const scale = useTransform(
+        scaleItem,
+        [0, 1],
+        isMobile ? ["1", "1"] : [".4", "1"]
+    );
 
 
     return (
-        <motion.section 
-            className={`relative`}
-            style={{
-                height: `100vh`
-            }}
-        >
-            <div className={` h-screen padding-x py-5 flex flex-col`}>
+        <motion.section className={`relative`}>
+            <div className={` md:h-screen padding-x py-5 flex flex-col`}>
                 <div className='z-20'>
                     <h2 className='text-[3em]'>Projects</h2>
                     <hr className='h-[2px] w-full mb-[2em]' />
@@ -80,11 +100,11 @@ const Projects = () => {
                 <div ref={containerRef}
                     onMouseMove={handleMouseMove}
                     onMouseLeave={handleMouseLeave}
-                    className='relative flex flex-col gap-10 h-full overflow-hidden'>
+                    className='relative flex flex-col gap-10 h-full md:overflow-hidden'>
                     <motion.div
                         style={{
                             y: moveY,
-                            scale: .7,
+                            scale,
                         }}
                         transition={{
                             type: "tween",
@@ -92,12 +112,13 @@ const Projects = () => {
                             ease: "easeInOut"
                         }}
                         ref={itemsRef}
-                        className='absolute translate-y-[-50%] flex flex-col gap-10 top-[50%] left-0 w-[50vw]'>
+                        className='md:absolute md:translate-y-[-50%] md:top-[50%] md:w-[50%] w-[100%] md:left-0  
+                         flex flex-col gap-10'>
                         {MyWorks.map((item, i) => {
                             return (
                                 <motion.div
                                     key={i}
-                                    className={`w-full bg-[var(--background)] hover:scale-[1.2] transition-all ease-in-out`}
+                                    className={` w-[100%] bg-[var(--background)] transition-all ease-in-out`}
                                     style={{
 
                                     }}
