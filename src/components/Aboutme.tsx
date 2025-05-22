@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, useScroll, useTransform } from 'motion/react';
+import { motion, MotionProps, useScroll, useTransform } from 'motion/react';
 import Marquee from "react-fast-marquee"
 import { useEffect, useRef, useState } from 'react';
 
@@ -46,17 +46,13 @@ const Aboutme = (props: Props) => {
         className='relative h-[300vh]'>
         <div ref={ref} className='sticky top-0 h-[100vh] padding-x py-5 flex flex-col'>
           <h2 className='text-[3em]'>About Me</h2>
-          <hr className='bg-white h-[2px] mb-[2em]' />
+          <hr className='h-[2px] mb-[2em]' />
           <div className='relative  flex items-center justify-between h-full mb-[2em]'>
 
-            <p className='xl:text-3xl text-2xl max-w-[20em] flex-1'>
-              I'm a full-stack developer and computer engineering student focused on building scalable web
-              applications from front to back. I work on a range of projects, from designing clean,
-              responsive interfaces to developing robust APIs and backend solutions.
-              <br /> <br />
-              You’ll often find me learning new technologies, remixing music, or sharing
-              knowledge with other devs through code, conversations, and collaboration.
-              I'm passionate about creating meaningful digital experiences and helping others grow along the way.
+            <p className='text-3xl max-w-[20em] flex-1'>
+              I'm always curious, always learning and
+              you’ll often find me remixing music thinking on next project.
+              I get excited about solving problems and making things that are both useful and enjoyable to use.
               <br /> <br />
               Always building. Always evolving.
             </p>
@@ -95,13 +91,9 @@ const Aboutme = (props: Props) => {
           <hr className='bg-white h-[2px] w-full mb-[2em]' />
           <div className='relative h-[100%] flex items-center text-justify justify-between mb-[2em]'>
             <p className='text-2xl w-[20em]'>
-              I'm a full-stack developer and computer engineering student focused on building scalable web
-              applications from front to back. I work on a range of projects, from designing clean,
-              responsive interfaces to developing robust APIs and backend solutions.
-              <br /> <br />
-              You’ll often find me learning new technologies, remixing music, or sharing
-              knowledge with other devs through code, conversations, and collaboration.
-              I'm passionate about creating meaningful digital experiences and helping others grow along the way.
+              I'm always curious, always learning and
+              you’ll often find me remixing music thinking on next project.
+              I get excited about solving problems and making things that are both useful and enjoyable to use.
               <br /> <br />
               Always building. Always evolving.
             </p>
@@ -151,3 +143,4 @@ const MyMarquee = () => {
     </div>
   )
 }
+
