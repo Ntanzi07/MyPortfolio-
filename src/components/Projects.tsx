@@ -134,11 +134,12 @@ const Projects = () => {
           <motion.div
             style={{
               display: isMobile ? selectWork === -1 ? "inline" : "none" : "inline",
+              height: `calc(100vh - ${heightTitle}px)`,
             }}
             ref={containerRef}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            className={`relative ${(selectWork !== -1 && !isMobile) ? `flex-[.3]` : `flex-[1]`} md:overflow-hidden w-full duration-700 transition-all ease-in-out`}>
+            className={` relative ${(selectWork !== -1 && !isMobile) ? `flex-[.3]` : `flex-[1]`} md:overflow-hidden w-full duration-700 transition-all ease-in-out`}>
             <motion.div
               style={{
                 y: moveY,
@@ -182,7 +183,7 @@ const Projects = () => {
             }}
             className={`flex-1 relative`}>
             {selectWork === -1
-              ? <div style={{height: `calc(100vh - ${heightTitle}px)`}} className={`grid place-items-center`}><h2 className='text-5xl italic'>Select a project</h2></div>
+              ? <div className={`grid h-full place-items-center`}><h2 className='text-5xl italic'>Select a project</h2></div>
               : <Work project={MyWorks[selectWork]} setWork={setSelectWork} />
             }
           </motion.div>
