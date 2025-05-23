@@ -34,12 +34,16 @@ const Hero = (props: Props) => {
     const translateYp1 = useTransform(scrollYProgress, [0, 1], ["0", "800%"])
     const translateYp2 = useTransform(scrollYProgress, [0, 1], ["0", "600%"])
 
+    const opacityP1 = useTransform(scrollYProgress, [.3, .5], [1, 0])
+    const opacityP2 = useTransform(scrollYProgress, [0, .6], [1, 0])
+
     return (
         <section ref={scrollRef} className='relative flex h-[calc(var(--vh)_*_100)] px-4 justify-end flex-col overflow-hidden'>
             <div className="absolute top-0 w-full gap-4 px-4 py-4 flex justify-between left-0 flex-wrap text-2xl text-justify">
                 <motion.p
                     style={{
                         translateY: translateYp1,
+                        opacity: opacityP1,
                     }}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -49,6 +53,7 @@ const Hero = (props: Props) => {
                 <motion.p
                     style={{
                         translateY: translateYp2,
+                        opacity: opacityP2,
                     }}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -58,14 +63,14 @@ const Hero = (props: Props) => {
                     <br /> <br />
                 </motion.p>
             </div>
-            <h2 className=" text-[8vw] leading-[1em] bg-[var(--background)] w-fit z-10">
+            <h2 className=" text-[8vw] leading-[1em] w-fit z-10">
                 <SplitText>Hi I'm</SplitText>
             </h2>
             <motion.h1
                 style={{
                     translateY,
                 }}
-                className='lg:text-[16vw] sm:text-[13vw] text-[23vw] leading-[1em] bg-[var(--background)] z-20'>
+                className='lg:text-[16vw] sm:text-[13vw] text-[23vw] leading-[1em] z-20'>
                 <SplitText>Nathan Tanzi</SplitText>
             </motion.h1>
         </section>

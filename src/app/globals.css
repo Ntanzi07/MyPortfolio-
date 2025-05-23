@@ -4,7 +4,7 @@
 :root {
   --background: #ededed;
   --foreground: #0a0a0a;
-    --vh: 1vh;
+  --vh: 1vh;
 }
 
 body {
@@ -15,7 +15,7 @@ body {
   font-style: normal;
 }
 
-.padding-x{
+.padding-x {
   @apply sm:px-16 px-6;
 }
 
@@ -25,11 +25,11 @@ body {
   font-style: normal;
 }
 
-.hero__img-content{
-  @apply absolute lg:right-0 lg:bottom-[50%] lg:-translate-y-[-50%] lg:-translate-x-[0%] overflow-hidden
-  -translate-x-[-50%] right-[50%] bottom-0 z-[-1];
+.hero__img-content {
+  @apply absolute lg:right-0 lg:bottom-[50%] lg:-translate-y-[-50%] lg:-translate-x-[0%] overflow-hidden -translate-x-[-50%] right-[50%] bottom-0 z-[-1];
 }
-.hero__img-content::after{
+
+.hero__img-content::after {
   @apply w-full top-0 left-0 h-full absolute lg:inline hidden;
   content: "";
   z-index: 1;
