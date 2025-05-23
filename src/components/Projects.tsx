@@ -134,7 +134,7 @@ const Projects = () => {
             ref={containerRef}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            className={`relative ${selectWork === -1 ? `flex-[1]` : `flex-[.3]`} w-full duration-700 transition-all ease-in-out`}>
+            className={`relative ${(selectWork !== -1 && !isMobile) ? `flex-[.3]` : `flex-[1]`} w-full duration-700 transition-all ease-in-out`}>
             <motion.div
               style={{
                 y: moveY,
