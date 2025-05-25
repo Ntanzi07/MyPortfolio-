@@ -198,69 +198,74 @@ export default Projects
 const Work = ({ project, setWork }: { project: ProjectItens, setWork: React.Dispatch<React.SetStateAction<number>> }) => {
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
       key={project.title}
-      className='flex flex-col gap-2 w-full'>
+      className='flex flex-col gap-10 w-full '>
+      <div className=' flex flex-col gap-2 w-full'>
+        <span className='cursor-pointer underline' onClick={() => setWork(-1)}>back to projects</span>
 
-      <span className='cursor-pointer underline' onClick={() => setWork(-1)}>back to projects</span>
+        <img
+          src={`${project.imgs}/main.png`}
+          alt="main"
+          className='object-cover'
+        />
+        <div className='flex md:flex-row flex-col gap-10 md:justify-between'>
+          <div className='md:w-[60%] w-full flex flex-col gap-2'>
+            <h2 className='italic text-[1.2em]'>
+              {project.title}
+            </h2>
+            <p className='md:text-left text-justify'>
+              {project.description}
+            </p>
+          </div>
 
-      <motion.img
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        src={`${project.imgs}/main.png`}
-        alt="main"
-        className='object-cover'
-      />
-      <div className='flex md:flex-row flex-col gap-10 md:justify-between'>
+          <div className=' flex flex-col ml-auto md:text-start text-end'>
+            <h2 className='underline'>Services</h2>
+            {
+              project.services.map((item) => (
+                <p key={item}>{item}</p>
+              ))
+            }
+          </div>
 
-        <div className='md:w-[60%] w-full flex flex-col gap-2'>
-          <motion.h2
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className='italic text-[1.2em]'
-          >
-            {project.title}
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className='md:text-left text-justify'>
-            {project.description}
-          </motion.p>
+          <div className='flex flex-col'>
+            <h2 className='underline'>links</h2>
+            <Link href={project.linkGit} className='flex gap-2 items-center'>
+              <GitHubLogoIcon />
+              <p>Ntanzi/{project.title}</p>
+            </Link>
+            <Link href={project.link} className='flex gap-2 items-center'>
+              <Link1Icon />
+              <p>{project.title}</p>
+            </Link>
+          </div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className=' flex flex-col ml-auto md:text-start text-end'>
-          <h2 className='underline'>Services</h2>
-          {
-            project.services.map((item) => (
-              <p key={item}>{item}</p>
-            ))
-          }
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className='flex flex-col'>
-          <h2 className='underline'>links</h2>
-          <Link href={project.linkGit} className='flex gap-2 items-center'>
-            <GitHubLogoIcon />
-            <p>Ntanzi/{project.title}</p>
-          </Link>
-          <Link href={project.link} className='flex gap-2 items-center'>
-            <Link1Icon />
-            <p>{project.title}</p>
-          </Link>
-        </motion.div>
       </div>
-    </div>
+
+
+      <div className='grid grid-cols-[2fr_1fr] gap-4'>
+        <img
+          src={`${project.imgs}/img1.png`}
+          alt="img1"
+          className='object-cover'
+        />
+        <img
+          src={`${project.imgs}/img2.png`}
+          alt="img2"
+          className='object-cover'
+        />
+      </div>
+
+      <video
+        src={`${project.imgs}/video.mp4`}
+        autoPlay
+        muted loop playsInline
+        className='object-cover select-none w-full'
+      />
+
+    </motion.div>
   )
 }
