@@ -4,6 +4,7 @@ import { motion, MotionProps, useAnimation, useScroll, useTransform } from "moti
 import { useInView } from 'react-intersection-observer';
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 
 
@@ -30,9 +31,11 @@ const Hero = (props: Props) => {
         offset: ["0 0", "1 0"]
     });
 
-    const translateY = useTransform(scrollYProgress, [0, 1], ["0", "100%"])
-    const translateYp1 = useTransform(scrollYProgress, [0, 1], ["0", "800%"])
-    const translateYp2 = useTransform(scrollYProgress, [0, 1], ["0", "600%"])
+    const translateY = useTransform(scrollYProgress, [0, 1], ["0", "100%"]);
+    const translateYp1 = useTransform(scrollYProgress, [0, 1], ["0", "800%"]);
+    const translateYp2 = useTransform(scrollYProgress, [0, 1], ["0", "600%"]);
+
+    const translateX = useTransform(scrollYProgress, [0, .2], ["0", "100%"]);
 
     const opacityP1 = useTransform(scrollYProgress, [.3, .5], [1, 0])
     const opacityP2 = useTransform(scrollYProgress, [0, .6], [1, 0])
@@ -63,6 +66,15 @@ const Hero = (props: Props) => {
                     <br /> <br />
                 </motion.p>
             </div>
+            <motion.div 
+                style={{
+                    translateX
+                }}
+                className="absolute right-0 padding-x top-[50%] text-[1.3em] flex flex-col text-right translate-y-[-50%]">
+                <Link href="https://www.instagram.com/nat.tanzi" className="">@nat.tanzi</Link>
+                <Link href="https://github.com/Ntanzi07">git/Ntanzi07</Link>
+                <Link href="www.linkedin.com/in/nathan-tanzi">in/nathan-tanzi</Link>
+            </motion.div>
             <h2 className=" text-[8vw] leading-[1em] w-fit z-10">
                 <SplitText>Hi I'm</SplitText>
             </h2>

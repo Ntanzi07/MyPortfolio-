@@ -3,8 +3,11 @@ import "./globals.css";
 import { ReactLenis } from "@/utils/lenis"
 
 export const metadata: Metadata = {
-    title: "Portfolio",
-    description: "welcome to my portfolio",
+  title: "Portfolio",
+  description: "welcome to my portfolio",
+  icons: {
+    icon: '/Icon.svg',
+  },
 };
 
 export default function RootLayout({

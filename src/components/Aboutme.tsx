@@ -29,7 +29,7 @@ const Aboutme = (props: Props) => {
           <div className='md:w-[50%] w-[100%] md:text-left text-justify'>
             <p className='md:text-3xl text-2xl flex-1'>
               I'm always curious, always learning and
-              you’ll often find me remixing music thinking on next project.
+              you’ll often find me playing guitar and thinking on next project.
               I get excited about solving problems and making things that are both useful and enjoyable to use.
               <br /> <br />
               Always building. Always evolving.
