@@ -169,21 +169,21 @@ const AllPhotos = () => {
       <div className=" md:h-[70vh] padding-x grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 md:auto-rows-fr auto-rows-auto lg:grid-rows-2 gap-2 md:gap-4">
         <div className="sm:row-span-2 row-span-2 sm:h-full h-[400px]">
           <img
-            src={`/My/My2.jpg`}
+            src={`/My/my2.jpg`}
             alt="img1"
             className="w-full h-full object-cover object-[50%80%]"
           />
         </div>
         <div className="lg:col-span-2 row-span-2 sm:h-full h-[400px]">
           <img
-            src={`/My/My9.jpg`}
+            src={`/My/my9.jpg`}
             alt="img1"
             className="w-full h-full object-cover object-[50%50%]"
           />
         </div>
         <div className="lg:row-span-1 row-span-2 sm:h-full h-[400px]">
           <img
-            src={`/My/My3.jpg`}
+            src={`/My/my3.jpg`}
             alt="img1"
             className="w-full h-full object-cover object-[50%80%]"
           />
@@ -200,21 +200,21 @@ const AllPhotos = () => {
       <div className=" md:h-[70vh] padding-x grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 md:auto-rows-fr auto-rows-auto lg:grid-rows-2 gap-2 md:gap-4">
         <div className="lg:col-span-2 row-span-2 sm:h-full h-[400px]">
           <img
-            src={`/My/My7.jpg`}
+            src={`/My/my7.jpg`}
             alt="img1"
             className="w-full h-full object-cover object-[50%50%]"
           />
         </div>
         <div className="sm:row-span-2 row-span-2 sm:h-full h-[400px]">
           <img
-            src={`/My/My1.jpg`}
+            src={`/My/my1.jpg`}
             alt="img1"
             className="w-full h-full object-cover object-[50%20%]"
           />
         </div>
         <div className="lg:row-span-1 row-span-2 sm:h-full h-[400px]">
           <img
-            src={`/My/My8.jpg`}
+            src={`/My/my8.jpg`}
             alt="img1"
             className="w-full h-full object-cover object-[50%80%]"
           />
