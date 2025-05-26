@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
 @import "tailwindcss";
 
 :root {
   --background: #ededed;
   --foreground: #0a0a0a;
   --vh: 1vh;
+}
+
+.arimo {
+  font-family: "Arimo", sans-serif;
 }
 
 body {
@@ -35,4 +40,15 @@ body {
   z-index: 1;
   background-image: linear-gradient(90deg, var(--background) 0%, rgba(0, 0, 0, 0) 10%),
     linear-gradient(90deg, rgba(0, 0, 0, 0) 90%, var(--background) 100%);
+}
+
+.glass-card {
+  background: rgba(189, 189, 189, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.iconSkill{
+  width: 75px;
+  height: 75px;
 }

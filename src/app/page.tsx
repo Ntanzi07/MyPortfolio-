@@ -1,4 +1,4 @@
-import { Hero, Aboutme, Projects } from "@/components";
+import { Hero, Aboutme, Projects, Skills } from "@/components";
 import { GitHubLogoIcon, LinkedInLogoIcon, InstagramLogoIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 
@@ -9,8 +9,9 @@ export default function Home() {
       </nav>
       <main>
         <Hero />
-        <Aboutme />
         <Projects />
+        <Aboutme />
+        <Skills />
       </main>
       <footer className="h-[15em] padding-x flex flex-col justify-center items-center gap-5 border-t-2">
         <div className="w-full flex justify-around items-center text-[1.3em] flex-wrap">

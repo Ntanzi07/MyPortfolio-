@@ -5,6 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { GitHubLogoIcon, InstagramLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 
 
 
@@ -66,14 +67,18 @@ const Hero = (props: Props) => {
                     <br /> <br />
                 </motion.p>
             </div>
-            <motion.div 
+            <motion.div
                 style={{
                     translateX
                 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 className="absolute right-0 padding-x top-[50%] text-[1.3em] flex flex-col text-right translate-y-[-50%]">
-                <Link href="https://www.instagram.com/nat.tanzi" className="">@nat.tanzi</Link>
-                <Link href="https://github.com/Ntanzi07">git/Ntanzi07</Link>
-                <Link href="www.linkedin.com/in/nathan-tanzi">in/nathan-tanzi</Link>
+                <span className="italic">Links:</span>
+                <Link href="https://github.com/Ntanzi07" className="flex items-center gap-2 justify-end underline"><GitHubLogoIcon width={25} height={25} className="" />git/Ntanzi07</Link>
+                <Link href="www.linkedin.com/in/nathan-tanzi" className="flex items-center gap-2 justify-end underline"><LinkedInLogoIcon width={25} height={25} className="" />in/nathan-tanzi</Link>
+                <Link href="https://www.instagram.com/nat.tanzi" className="flex items-center gap-2 justify-end underline"><InstagramLogoIcon width={25} height={25} className="" />@nat.tanzi</Link>
+
             </motion.div>
             <h2 className=" text-[8vw] leading-[1em] w-fit z-10">
                 <SplitText>Hi I'm</SplitText>

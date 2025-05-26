@@ -1,8 +1,8 @@
 'use client'
 
-import { motion, useMotionValue, useSpring, useTransform } from 'motion/react'
+import { motion, useMotionValue, useScroll, useSpring, useTransform } from 'motion/react'
 import React, { useEffect, useRef, useState } from 'react'
-import { GitHubLogoIcon, Link1Icon } from '@radix-ui/react-icons'
+import { ArrowLeftIcon, ArrowUpIcon, GitHubLogoIcon, Link1Icon } from '@radix-ui/react-icons'
 import Link from 'next/link'
 
 type ProjectItens = {
@@ -121,20 +121,30 @@ const Projects = () => {
     isMobile ? ["1", "1"] : [selectWork === -1 ? ".4" : ".7", ".8"]
   );
 
+  const ref = useRef(null)
+
+  const { scrollYProgress: scroll1 } = useScroll({
+    target: ref,
+    offset: ["0 1", "0 0"]
+  });
+
+  const opacity = useTransform(scroll1, [0, 1], ["0", "1"]);
+
   return (
-    <motion.section className={`relative `}>
+    <motion.section
+      ref={ref}
+      style={{ opacity }}
+      className={`relative `}>
       <div className={` padding-x py-5 flex flex-col`}>
-        <div
-          ref={itemsRef}
-          className='z-20 py-5'>
-          <h2 className='text-[3em]'>Projects</h2>
-          <hr className='h-[2px] w-full' />
+        <div ref={itemsRef} className=''>
+          <h2 className='lg:text-[7em] md:text-[5em] italic text-[15vw] uppercase font-bold itaic arimo leading-[1em]'>Last Works</h2>
         </div>
+
         <div className='relative flex gap-10 w-full h-full'>
           <motion.div
             style={{
               display: isMobile ? selectWork === -1 ? "inline" : "none" : "inline",
-              height: `calc(100vh - ${heightTitle}px)`,
+              height: isMobile ? '' : `calc(100vh - ${heightTitle}px)`,
             }}
             ref={containerRef}
             onMouseMove={handleMouseMove}
@@ -183,12 +193,20 @@ const Projects = () => {
             }}
             className={`flex-1 relative`}>
             {selectWork === -1
-              ? <div className={`grid h-full place-items-center`}><h2 className='text-5xl italic'>Select a project</h2></div>
+              ? <div className={`flex h-full items-center justify-center`}><ArrowLeftIcon height={50} width={50} /><h2 className='text-5xl italic'> Select a project</h2></div>
               : <Work project={MyWorks[selectWork]} setWork={setSelectWork} />
             }
           </motion.div>
         </div>
       </div>
+      <motion.div 
+        style={{
+          display: isMobile ? "flex" : "none",
+        }}
+        className='h-[20vh] justify-center items-center gap-3'>
+        <h2 className='lg:text-5xl text-[8vw]'>Select one project</h2>
+        <ArrowUpIcon height={50} width={50}/>
+      </motion.div>
     </motion.section >
   )
 }
