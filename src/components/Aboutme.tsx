@@ -68,7 +68,7 @@ const Aboutme = (props: Props) => {
       <div className='flex flex-col justify-center padding-x sm:h-[100vh] h-[50vh] gap-5'>
         <h2 className='lg:text-[3em] md:text-[2em] text-[5vw]'>You can find more about me in my:</h2>
         <div className='flex gap-5 md:flex-row flex-col lg:justify-start justify-around flex-wrap'>
-          <Link href="https://docs.google.com/document/d/1yO_1rpyVbC2HnXXCgR2uoA_h5RjJpXBmFSn6-C3EJbc/edit?usp=sharing"
+          <Link href="https://docs.google.com/document/d/1V71lT7VHR0yvS7cRhTvz0nNP6Ye826YDaO1xrZLB7eg/edit?usp=sharing"
             className='lg:text-[3em] md:text-[2em] text-[5vw] padding-x py-3 border-2 rounded-2xl text-center hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-all'>
             My CV
           </Link>
