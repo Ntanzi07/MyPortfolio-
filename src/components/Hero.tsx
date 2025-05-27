@@ -74,9 +74,8 @@ const Hero = (props: Props) => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 className="absolute right-0 padding-x top-[50%] text-[1.3em] flex flex-col text-right translate-y-[-50%]">
-                <span className="italic">Links:</span>
                 <Link href="https://github.com/Ntanzi07" className="flex items-center gap-2 justify-end underline"><GitHubLogoIcon width={25} height={25} className="" />git/Ntanzi07</Link>
-                <Link href="www.linkedin.com/in/nathan-tanzi" className="flex items-center gap-2 justify-end underline"><LinkedInLogoIcon width={25} height={25} className="" />in/nathan-tanzi</Link>
+                <Link href="https://www.linkedin.com/in/nathan-tanzi" className="flex items-center gap-2 justify-end underline"><LinkedInLogoIcon width={25} height={25} className="" />in/nathan-tanzi</Link>
                 <Link href="https://www.instagram.com/nat.tanzi" className="flex items-center gap-2 justify-end underline"><InstagramLogoIcon width={25} height={25} className="" />@nat.tanzi</Link>
 
             </motion.div>

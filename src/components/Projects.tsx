@@ -149,7 +149,7 @@ const Projects = () => {
             ref={containerRef}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            className={` relative ${(selectWork !== -1 && !isMobile) ? `flex-[.3]` : `flex-[1]`} md:overflow-hidden w-full duration-700 transition-all ease-in-out`}>
+            className={` relative ${(selectWork !== -1 && !isMobile) ? `flex-[.3]` : `flex-[1]`}  w-full duration-700 transition-all ease-in-out`}>
             <motion.div
               style={{
                 y: moveY,
@@ -165,7 +165,7 @@ const Projects = () => {
               {MyWorks.map((item, i) => {
                 return (
                   <button key={i} onClick={() => setSelectWork(i)}
-                    className='cursor-pointer hover:scale-[1.2] hover:z-10 transition-all ease-in-out'
+                    className='cursor-pointer shadow-[0px_30px_50px_-22px] overflow-hidden rounded-2xl hover:scale-[1.2] hover:z-10 transition-all ease-in-out'
                   >
                     <motion.div
                       className={`w-[100%] bg-[var(--background)] transition-all ease-in-out`}
@@ -176,10 +176,6 @@ const Projects = () => {
                         className='relative right-0 transition-all'>
                         <img src={`${item.imgs}/main.png`} alt={"main"} className='object-cover' />
                       </motion.div>
-                      <div className='w-full flex justify-between text-[1em]'>
-                        <h2>{item.title}</h2>
-                        <h2 className='tracking-widest'>{item.date}</h2>
-                      </div>
                     </motion.div>
                   </button>
                 )
@@ -281,6 +277,8 @@ const Work = ({ project, setWork }: { project: ProjectItens, setWork: React.Disp
         src={`${project.imgs}/video.mp4`}
         autoPlay
         muted loop playsInline
+        disablePictureInPicture
+        controlsList="nodownload nofullscreen noremoteplayback"
         className='object-cover select-none w-full'
       />
 

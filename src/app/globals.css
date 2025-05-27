@@ -8,6 +8,19 @@
   --vh: 1vh;
 }
 
+video::-webkit-media-controls-enclosure {
+  overflow: hidden;
+}
+
+video::-webkit-media-controls-panel {
+  display: flex !important;
+  justify-content: flex-start;
+}
+
+video::-webkit-media-controls-picture-in-picture-button {
+  display: none !important;
+}
+
 .arimo {
   font-family: "Arimo", sans-serif;
 }

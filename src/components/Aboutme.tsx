@@ -70,13 +70,13 @@ const Aboutme = (props: Props) => {
         <div className='flex gap-5 md:flex-row flex-col lg:justify-start justify-around flex-wrap'>
           <Link href="https://docs.google.com/document/d/1yO_1rpyVbC2HnXXCgR2uoA_h5RjJpXBmFSn6-C3EJbc/edit?usp=sharing"
             className='lg:text-[3em] md:text-[2em] text-[5vw] padding-x py-3 border-2 rounded-2xl text-center hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-all'>
-            Resume
+            My CV
           </Link>
-          <Link href="https://docs.google.com/document/d/1yO_1rpyVbC2HnXXCgR2uoA_h5RjJpXBmFSn6-C3EJbc/edit?usp=sharing"
+          <Link href="https://www.linkedin.com/in/nathan-tanzi"
             className='lg:text-[3em] md:text-[2em] text-[5vw] padding-x py-3 border-2 rounded-2xl text-center hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-all'>
             Linkedin
           </Link>
-          <Link href="https://docs.google.com/document/d/1yO_1rpyVbC2HnXXCgR2uoA_h5RjJpXBmFSn6-C3EJbc/edit?usp=sharing"
+          <Link href="https://github.com/Ntanzi07"
             className='lg:text-[3em] md:text-[2em] text-[5vw] padding-x py-3 border-2 rounded-2xl text-center hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-all'>
             GitHub
           </Link>
@@ -166,7 +166,7 @@ const AllPhotos = () => {
   return (
     <div className='relative flex flex-col gap-2 md:gap-4'>
 
-      <div className=" md:h-[70vh] padding-x grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 md:auto-rows-fr auto-rows-auto lg:grid-rows-2 gap-2 md:gap-4">
+      <div className=" md:h-[50rem] padding-x grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 md:auto-rows-fr auto-rows-auto lg:grid-rows-2 gap-2 md:gap-4">
         <div className="sm:row-span-2 row-span-2 sm:h-full h-[400px]">
           <img
             src={`/My/my2.jpg`}
@@ -189,7 +189,7 @@ const AllPhotos = () => {
           />
         </div>
         <div className="lg:row-span-1 row-span-2">
-          <p className="w-full object-cover object-[50%90%] col-start-4 text-[1.3em]  text-justify" >
+          <p className="w-full object-cover object-[50%90%] col-start-4 text-[1.3em] text-justify" >
             I spent six weeks living in Fall River and Newport, Massachusetts, on a personal exchange program
             to immerse myself in English and experience daily life in the U.S. It was a great opportunity
             to improve my language skills while adapting to a new culture.
@@ -197,7 +197,7 @@ const AllPhotos = () => {
         </div>
       </div>
 
-      <div className=" md:h-[70vh] padding-x grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 md:auto-rows-fr auto-rows-auto lg:grid-rows-2 gap-2 md:gap-4">
+      <div className=" md:h-[50rem] padding-x grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 md:auto-rows-fr auto-rows-auto lg:grid-rows-2 gap-2 md:gap-4">
         <div className="lg:col-span-2 row-span-2 sm:h-full h-[400px]">
           <img
             src={`/My/my7.jpg`}
@@ -234,18 +234,20 @@ const AllPhotos = () => {
             src={`My/webProject.mp4`}
             autoPlay
             muted loop playsInline
+            disablePictureInPicture
+            controlsList="nodownload nofullscreen noremoteplayback"
             className='object-cover md:h-full w-full h-[300px] select-none object-[50%30%]'
           />
         </div>
-        <div className='w-full'>
-          <iframe
-            className=" w-full h-full select-none"
-            src="https://www.youtube.com/embed/Oii_IBOS7EI?autoplay=1&mute=1&loop=1&playlist=Oii_IBOS7EI&controls=0&playsinline=1"
-            title="YouTube video"
-            frameBorder="0"
-            allow="autoplay; encrypted-media"
-            allowFullScreen
-          ></iframe>
+        <div className=''>
+          <video
+            src={`My/pitch.mp4`}
+            autoPlay
+            muted loop playsInline
+            disablePictureInPicture
+            controlsList="nodownload nofullscreen noremoteplayback"
+            className='object-cover md:h-full w-full h-[300px] select-none object-[50%30%]'
+          />
         </div>
       </div>
 

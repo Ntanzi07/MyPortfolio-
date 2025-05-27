@@ -18,7 +18,7 @@ export default function Home() {
           <Link href="/"><h2 className="">Nathan Tanzi</h2></Link>
           <div className="flex gap-5">
             <Link href="https://github.com/Ntanzi07"><GitHubLogoIcon width={25} height={25} className=""/></Link>
-            <Link href="www.linkedin.com/in/nathan-tanzi"><LinkedInLogoIcon width={25} height={25} className=""/></Link>
+            <Link href="https://www.linkedin.com/in/nathan-tanzi"><LinkedInLogoIcon width={25} height={25} className=""/></Link>
             <Link href="https://www.instagram.com/nat.tanzi"><InstagramLogoIcon width={25} height={25} className=""/></Link>
           </div>
         </div>
