@@ -212,14 +212,14 @@ const AllPhotos = () => {
             className="w-full h-full object-cover object-[50%20%]"
           />
         </div>
-        <div className="lg:row-span-1 row-span-2 sm:h-full h-[400px]">
+        <div className="lg:row-start-1 lg:col-start-1 lg:row-span-1 row-span-2 sm:h-full h-[400px]">
           <img
             src={`/My/my8.jpg`}
             alt="img1"
             className="w-full h-full object-cover object-[50%80%]"
           />
         </div>
-        <div className="lg:row-span-1 row-span-2">
+        <div className="lg:row-start-2 lg:col-start-1 lg:row-span-1 row-span-2">
           <p className="w-full object-cover object-[50%90%] col-start-4 text-[1.3em]  text-justify" >
             In university, I built all kinds of projects—some focused on social impact (like ODS-related tools),
             others just for the joy of solving technical challenges. From web apps to data structures,
